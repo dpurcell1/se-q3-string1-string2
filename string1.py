@@ -4,7 +4,8 @@ Kenzie assignment: String1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = """Darrell Purcell with help from
+                https://www.w3schools.com/python/python_ref_string.asp"""
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +29,11 @@ __author__ = "???"
 
 
 def donuts(count):
-    # your code here
-    return
+    countString = 'Number of donuts: ' + str(count)
+    if count < 10:
+        return countString
+    else:
+        return 'Number of dounts: many'
 
 
 # B. both_ends
@@ -42,8 +46,11 @@ def donuts(count):
 
 
 def both_ends(s):
-    # your code here
-    return
+    newString = s[0:2] + s[-2:]
+    if len(s) < 2:
+        return ''
+    else:
+        return newString
 
 
 # C. fix_start
@@ -58,8 +65,10 @@ def both_ends(s):
 
 
 def fix_start(s):
-    # your code here
-    return
+    firstChar = s[0]
+    slicedString = s[1:]
+    newString = firstChar + slicedString.replace(firstChar, '*')
+    return newString
 
 
 # D. mix_up
@@ -73,8 +82,9 @@ def fix_start(s):
 
 
 def mix_up(a, b):
-    # your code here
-    return
+    swapped_a = a.replace(a[0:2], b[0:2])
+    swapped_b = b.replace(b[0:2], a[0:2])
+    return swapped_a + ' ' + swapped_b
 
 
 # Provided simple test() function used in main() to print

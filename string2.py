@@ -4,7 +4,8 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = """Darrell Purcell with help from
+            https://www.tutorialspoint.com/python/python_basic_operators.htm"""
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,8 +24,15 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
+    if len(s) >= 3:
+        if s.endswith('ing'):
+            newString = s[:] + 'ly'
+            return newString
+        else:
+            newString = s[:] + 'ing'
+            return newString
+    else:
+        return s
 
 
 # E. not_bad
@@ -37,8 +45,10 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    if s.index('not') != -1 and s.index('bad') != -1:
+        if s.index('not') < s.index('bad'):
+            newString = s.replace(s[s.index('not'):], 'good')
+            return newString
 
 
 # F. front_back
@@ -52,8 +62,21 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    if len(a) % 2 == 0:
+        midpoint = int(len(a) / 2)
+        a_front = a[:midpoint]
+        a_back = a[midpoint:]
+    else:
+        a_front = a[:(midpoint + 1)]
+        a_back = a[(midpoint + 1):]
+    if len(b) % 2 == 0:
+        midpoint = int(len(b) / 2)
+        b_front = b[:midpoint]
+        b_back = b[midpoint:]
+    else:
+        b_front = b[:(midpoint + 1)]
+        b_back = b[(midpoint + 1):]
+    return a_front + b_front + a_back + b_back
 
 
 # Provided simple test() function used in main() to print
