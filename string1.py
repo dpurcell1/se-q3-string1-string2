@@ -33,7 +33,7 @@ def donuts(count):
     if count < 10:
         return countString
     else:
-        return 'Number of dounts: many'
+        return 'Number of donuts: many'
 
 
 # B. both_ends

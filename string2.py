@@ -45,10 +45,15 @@ def verbing(s):
 
 
 def not_bad(s):
-    if s.index('not') != -1 and s.index('bad') != -1:
-        if s.index('not') < s.index('bad'):
-            newString = s.replace(s[s.index('not'):], 'good')
+    if s.find('not') != -1 and s.find('bad') != -1:
+        if s.find('not') < s.find('bad'):
+            stopPos = s.find('bad') + 3
+            newString = s.replace(s[s.find('not'):stopPos], 'good')
             return newString
+        else:
+            return s
+    else:
+        return s
 
 
 # F. front_back
@@ -62,20 +67,20 @@ def not_bad(s):
 
 
 def front_back(a, b):
+    a_midpoint = int(len(a) / 2)
+    b_midpoint = int(len(b) / 2)
     if len(a) % 2 == 0:
-        midpoint = int(len(a) / 2)
-        a_front = a[:midpoint]
-        a_back = a[midpoint:]
+        a_front = a[:a_midpoint]
+        a_back = a[a_midpoint:]
     else:
-        a_front = a[:(midpoint + 1)]
-        a_back = a[(midpoint + 1):]
+        a_front = a[:(a_midpoint + 1)]
+        a_back = a[(a_midpoint + 1):]
     if len(b) % 2 == 0:
-        midpoint = int(len(b) / 2)
-        b_front = b[:midpoint]
-        b_back = b[midpoint:]
+        b_front = b[:b_midpoint]
+        b_back = b[b_midpoint:]
     else:
-        b_front = b[:(midpoint + 1)]
-        b_back = b[(midpoint + 1):]
+        b_front = b[:(b_midpoint + 1)]
+        b_back = b[(b_midpoint + 1):]
     return a_front + b_front + a_back + b_back
 
 
